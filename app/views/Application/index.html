@@ -1,0 +1,20 @@
+#{extends 'main.html' /}
+#{set title:'Central de Chamados - TI' /}
+
+<div class="page-center">
+    <div class="hero-card">
+        <div class="icone">🖥️</div>
+        <h1>Central de Chamados de TI</h1>
+        <p class="subtitulo">
+            Cadastre seu equipamento e descreva o problema para que a
+            equipe de TI possa te ajudar.
+        </p>
+
+        <div class="hero-botoes">
+            <a class="btn btn-primary" href="@{Usuarios.form()}">Abrir Chamado</a>
+            <a class="btn btn-secondary" href="@{Usuarios.listar()}">Ver Chamados</a>
+        </div>
+
+        <div class="rodape">Suporte de TI &middot; Projeto PI Chamados</div>
+    </div>
+</div>
