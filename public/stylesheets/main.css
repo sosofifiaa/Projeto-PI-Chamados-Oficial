@@ -430,9 +430,61 @@ td a.remover {
     border: 1px solid #b7dfb9;
 }
 .navbar-user {
-    color: #cfd8dc;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 8px;
+    padding: 6px 14px 6px 6px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+}
+
+.navbar-user-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.navbar-user-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.navbar-user-nome {
+    color: #fff;
     font-size: 13px;
-    padding: 0 10px;
+    font-weight: 700;
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.navbar-user-perfil {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.perfil-ADMINISTRADOR { color: #f5b041; }
+.perfil-TECNICO       { color: #5dade2; }
+.perfil-USUARIO       { color: #82e0aa; }
+
+@media (max-width: 640px) {
+    .navbar-user {
+        margin: 8px 0;
+        border-radius: var(--radius);
+    }
 }
 .erro {
     display: block;

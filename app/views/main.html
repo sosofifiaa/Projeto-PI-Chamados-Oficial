@@ -3,7 +3,7 @@
 <html>
     <head>
         <title>#{get 'title' /}</title>
-        <meta charset="${_response_encoding}">
+        <meta charset="UTF-8">
         <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
@@ -26,7 +26,13 @@
                     #{if session.get('usuarioLogado')}
                         <li><a class="navbar-link" data-path="/Usuarios/form" href="@{Usuarios.form()}">Abrir Chamado</a></li>
                         <li><a class="navbar-link" data-path="/Usuarios" href="@{Usuarios.listar()}">Painel Geral</a></li>
-                        <li class="navbar-user">${session.get('nomeUsuario')} <small>(${session.get('perfilUsuario')})</small></li>
+                        <li class="navbar-user">
+                            <span class="navbar-user-avatar">${session.get('nomeUsuario')?.substring(0,1)?.toUpperCase()}</span>
+                            <span class="navbar-user-info">
+                                <span class="navbar-user-nome">${session.get('nomeUsuario')}</span>
+                                <span class="navbar-user-perfil perfil-${session.get('perfilUsuario')}">${session.get('perfilUsuario')}</span>
+                            </span>
+                        </li>
                         <li><a class="navbar-link" href="@{Logins.sair()}">Sair</a></li>
                     #{/if}
                     #{else}
@@ -46,7 +52,7 @@
 
         #{doLayout /}
 
-        <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="UTF-8"></script>
         <script type="text/javascript">
             $(function () {
                 $('#navToggle').on('click', function () {

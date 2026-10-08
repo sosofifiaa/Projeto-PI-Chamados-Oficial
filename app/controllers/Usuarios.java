@@ -5,6 +5,7 @@ import models.Usuario;
 import models.Chamado;
 import models.Equipamento;
 import models.Perfil;
+import play.data.validation.Valid;
 import play.mvc.Controller;
 import play.mvc.With;
 import security.Administrador;
@@ -25,7 +26,7 @@ public class Usuarios extends Controller {
         render();
     }
 
-    public static void salvar(Equipamento e, Chamado c) {
+    public static void salvar(@Valid Equipamento e, @Valid Chamado c) {
     	if (validation.hasErrors()) {
     		flash.error("Corrija os campos destacados antes de continuar!");
     		params.flash();
@@ -46,7 +47,7 @@ public class Usuarios extends Controller {
     public static void cadastro() {
         render();
     }
-    public static void salvarCadastro(Usuario u) {
+    public static void salvarCadastro(@Valid Usuario u) {
     	if (Usuario.existeUsuario(u.email)) {
     		validation.addError("u.email", "Este email já está cadastrado");
     		
@@ -69,8 +70,9 @@ public class Usuarios extends Controller {
         render(u);
     }
 
+    @Administrador
     public static void atualizarUsuario(Long id, Usuario u) {
-        Usuario usuario = Usuario.findById(id);
+    	Usuario usuario = Usuario.findById(id);
         usuario.nome = u.nome;
         usuario.email = u.email;
         if (u.senha != null && !u.senha.isEmpty()) {
