@@ -1,13 +1,14 @@
 
 :root {
-    --color-primary: #4CAF50;
-    --color-primary-dark: #43a047;
-    --color-dark: #2c3e50;
-    --color-dark-light: #34495e;
-    --color-text: #2f2f2f;
-    --color-muted: #737373;
-    --color-border: #e0e0e0;
-    --color-bg: #f4f6f8;
+   --color-primary: #16a34a;
+    --color-primary-dark: #15803d;
+    --color-accent: #2563eb;
+    --color-dark: #0b3a6f;
+    --color-dark-light: #1d4f91;
+    --color-text: #1f2937;
+    --color-muted: #64748b;
+    --color-border: #d3e3ef;
+    --color-bg: #eef6fb;
     --color-surface: #ffffff;
     --color-danger: #e74c3c;
 
@@ -318,7 +319,7 @@ form select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-image: url("data:image/svg+xml,...seta...");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230b3a6f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 16px;
@@ -493,3 +494,45 @@ td a.remover {
     margin-top: -8px;
     margin-bottom: 6px;
 }
+
+  
+a { color: var(--color-accent); }
+
+.navbar {
+    background: linear-gradient(90deg, var(--color-dark), #0e6b8f 60%, var(--color-primary-dark));
+}
+
+th {
+    background: linear-gradient(90deg, var(--color-dark), var(--color-dark-light));
+}
+
+tbody tr:hover { background-color: #eaf6f1; }
+
+.form-card,
+.hero-card {
+    border-top: 4px solid var(--color-primary);
+}
+
+.btn-secondary {
+    background-color: #e8f0fb;
+    color: var(--color-dark);
+    border: 1px solid #bcd0ee;
+}
+
+.btn-secondary:hover { background-color: #d6e4f8; }
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form select:focus,
+.search-bar input[type="text"]:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+h1, h2 { border-left: 4px solid var(--color-primary); padding-left: 10px; }
+
+
+
+
