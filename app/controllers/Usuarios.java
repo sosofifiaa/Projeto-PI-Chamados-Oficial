@@ -34,13 +34,12 @@ public class Usuarios extends Controller {
     		form();
     	}
     	
-      Usuario logado = Usuario.findById(Long.valueOf(session.get("idUsuario")));
-      
+        Usuario logado = Usuario.findById(Long.valueOf(session.get("idUsuario")));
+
         e.save();
         c.usuario = logado;
         c.equipamento = e;
         c.save();
-        listar();
         flash.success("Chamado aberto com sucesso!");
         listar();
     }
@@ -140,6 +139,9 @@ public class Usuarios extends Controller {
         listar();
     }
     public static void pesquisar(String termo) {
+    	 if (termo == null || termo.trim().isEmpty()) {
+    	        listar();
+    	    }
         String busca = "%" + termo.toLowerCase() + "%";
         List<Usuario> usuarios = Usuario.find(
             "ativo = true and (lower(nome) like ?1 or lower(email) like ?1)", busca).fetch();
@@ -147,6 +149,6 @@ public class Usuarios extends Controller {
             "ativo = true and (lower(nome) like ?1 or lower(patrimonio) like ?1 or lower(tipo) like ?1 or lower(laboratorio) like ?1)", busca).fetch();
         List<Chamado> chamados = Chamado.find(
             "ativo = true and (lower(titulo) like ?1 or lower(descricao) like ?1 or lower(prioridade) like ?1 or lower(status) like ?1)", busca).fetch();
-        render("Usuarios/listar.html", usuarios, equipamentos, chamados);
+        render("Usuarios/listar.html", usuarios, equipamentos, chamados, termo);
     }
 }
